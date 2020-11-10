@@ -43,3 +43,11 @@ docker run \
 
 This image is somewhat similar to the no longer maintained [blacklabelops/logrotate](https://github.com/blacklabelops/logrotate)
 but a lot simpler to use and maintain.
+
+
+# Usage
+It's double published (github and private gcr repo).
+
+`docker run ghcr.io/linkyard/logrotate`
+or
+`docker run eu.gcr.io/linkyard-191615/linkyard-cloud/logrotate`
