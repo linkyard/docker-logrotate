@@ -1,3 +1,5 @@
+![Docker](https://github.com/linkyard/docker-logrotate/workflows/Docker/badge.svg)
+
 # logrotate
 
 This is a docker container based on Alpine Linux with `logrotate`.
