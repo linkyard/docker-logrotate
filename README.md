@@ -7,7 +7,8 @@ This is a docker container based on Alpine Linux with `logrotate`.
 Simply mount a directory with your logs into the container at `/logs` and optionally
 configure some logrotation features with the following environment variables:
 
-- `LOGROTATE_FILE_PATTERN` (default: `*.log`): File pattern within the `/logs` directory for logs
+- `LOGROTATE_FILE_PATH` (default `var/log`): File path to observe
+- `LOGROTATE_FILE_PATTERN` (default: `*.log`): File pattern within the `/var/log` directory for logs
   to be rotated by `logrotate`
 - `LOGROTATE_TRUNCATE` (default: `copytruncate`): Truncation behaviour of logrotate, use either
   `copytruncate` or `nocopytruncate`
@@ -15,6 +16,7 @@ configure some logrotation features with the following environment variables:
   either `nocompress` or `compress`
 - `LOGROTATE_ROTATE` (default: `5`): The `rotate` option of logrotate
 - `LOGROTATE_SIZE` (default `50M`): the `size` option of logrotate
+- `LOGROTATE_POSTROTATE` (default: `echo 'test'`): run script after rotation
 
 If you want to use a different logrotate configuration, mount a `logrotate.conf` at `/etc/logrotate.conf`
 into the container. The environment variables mentioned above have no effect if you supply your own

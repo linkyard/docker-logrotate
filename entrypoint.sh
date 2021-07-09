@@ -7,11 +7,14 @@ if [ -e /etc/logrotate.conf ]; then
 else
   echo "Using templated /etc/logrotate.conf:" | ts "${TS_FORMAT}"
   {
-    echo "/logs/${LOGROTATE_FILE_PATTERN:-*.log} {"
+    echo "/${LOGROTATE_FILE_PATH:-var/log}/${LOGROTATE_FILE_PATTERN:-*.log} {"
     echo "  ${LOGROTATE_TRUNCATE:-copytruncate}"
     echo "  ${LOGROTATE_COMPRESS:-nocompress}"
     echo "  rotate ${LOGROTATE_ROTATE:-5}"
     echo "  size ${LOGROTATE_SIZE:-50M}"
+    echo "  postrotate"
+    echo "    ${LOGROTATE_POSTROTATE:-echo 'test'}"
+    echo "  endscript"
     echo "}"
   } > /etc/logrotate.conf
 fi
