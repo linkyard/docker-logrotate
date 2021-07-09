@@ -1,4 +1,4 @@
-FROM alpine:3.12
+FROM alpine:3.14
 
 RUN set -x \
   && apk add --no-cache logrotate tini tzdata moreutils \

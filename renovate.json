@@ -1,0 +1,15 @@
+{
+    "extends": ["config:base", ":semanticCommits", ":semanticCommitScopeDisabled"],
+    "minor": {
+      "automerge": true
+    },
+    "patch": {
+      "automerge": true
+    },
+    "pin": {
+      "automerge": true
+    },
+    "digest": {
+      "automerge": true
+    }
+  }
