@@ -21,8 +21,8 @@ if [ -d "/etc/periodic/${LOGROTATE_CRON:-15min}" ]; then
   echo "using /etc/periodic/${LOGROTATE_CRON:-15min} cron schedule" | ts "${TS_FORMAT}"
   mv /etc/.logrotate.cronjob "/etc/periodic/${LOGROTATE_CRON:-15min}/logrotate"
 else
-  echo "assuming \"${LOGROTATE_CRON:-15min}\" is a cron expression; appending to root's crontab" | ts "${TS_FORMAT}"
-  echo "${LOGROTATE_CRON:-15min} /etc/.logrotate.cronjob" >> /var/spool/cron/crontabs/root
+  echo "assuming \"${LOGROTATE_CRON:-15min}\" is a cron expression; replacing root's crontab" | ts "${TS_FORMAT}"
+  echo "${LOGROTATE_CRON:-15min} /etc/.logrotate.cronjob" > /var/spool/cron/crontabs/root
 fi
 
 # shellcheck disable=SC2086
